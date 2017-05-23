@@ -3,3 +3,4 @@
 .project
 .settings
 Reuters21578-Apte-90Cat
+*.h5
