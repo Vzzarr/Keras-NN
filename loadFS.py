@@ -59,17 +59,5 @@ def load_input(training_path, test_path) :
         for word in x :
             words.append(vocab_train.token2id[word])
         x_test.append(words)
-    '''
-    for x in x_train :
-        print x
-    print len(x_train)
-    print len(y_train)
 
-    print len(x_test)
-    print len(y_test)
-    '''
-
-    return (np.array(x_train), np.array(y_train)), (np.array(x_test), np.array(y_test))
-    #return [[vocab_train.token2id[word] for word in sent] for sent in texts]#(xy_train, y_train), (x_test, y_test)
-
-load_input("Reuters21578-Apte-90Cat/training", "Reuters21578-Apte-90Cat/test")
+    return (np.array(x_train), np.array(y_train)), (np.array(x_test), np.array(y_test)), vocab_train
