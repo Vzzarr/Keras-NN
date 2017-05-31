@@ -6,20 +6,20 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation
 from keras.preprocessing.text import Tokenizer
 from gensim.corpora import Dictionary
-from loadFS import load_input, clean_str
+from loadFS import load_input, clean_str, filtro_stringa
 from keras.models import load_model
 from os import listdir
 from keras.utils import plot_model
 
-localNNname = 'nn.h5'
+localNNname = 'nn_amr.h5'
 
 print('Loading data...')
 (x_train, y_train), (x_test, y_test), dictionary = \
-    load_input("Reuters21578-Apte-90Cat/training", "Reuters21578-Apte-90Cat/test")
+    load_input("/home/nicholas/Documenti/Keras-NN/mario/training", "/home/nicholas/Documenti/Keras-NN/mario/test")
 
 max_words = 10000
 batch_size = 100
-epochs = 5
+epochs = 50
 
 tokenizer = Tokenizer(num_words=max_words)
 
@@ -75,7 +75,7 @@ else :
 
     model.save(localNNname)
 
-input = clean_str(open("input.txt", "r").read()).split()
+input = filtro_stringa(open("input.txt", "r").read())
 inputDic = Dictionary([input[:-int(len(input) / 2)], input[int(len(input) / 2):]])
 dictionary.merge_with(inputDic)
 

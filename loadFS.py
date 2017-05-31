@@ -2,23 +2,42 @@ from gensim.corpora import Dictionary
 from os import listdir
 import re
 import numpy as np
+from stop_words import get_stop_words
+import string
+from nltk.tokenize import word_tokenize
+import nltk
+from nltk.stem import SnowballStemmer
 
 
-def clean_str(string):
-    string = re.sub(r"[^A-Za-z0-9(),!?\'\`]", " ", string)
-    string = re.sub(r"\'s", " \'s", string)
-    string = re.sub(r"\'ve", " \'ve", string)
-    string = re.sub(r"n\'t", " n\'t", string)
-    string = re.sub(r"\'re", " \'re", string)
-    string = re.sub(r"\'d", " \'d", string)
-    string = re.sub(r"\'ll", " \'ll", string)
-    string = re.sub(r",", "", string)
-    string = re.sub(r"!", "", string)
-    string = re.sub(r"\(", "", string)
-    string = re.sub(r"\)", "", string)
-    string = re.sub(r"\?", "", string)
-    string = re.sub(r"\s{2,}", " ", string)
-    return string.strip().lower()
+def clean_str(stringa):
+    stringa = re.sub(r"[^A-Za-z0-9(),!?\'\`]", " ", stringa)
+    stringa = re.sub(r"\'s", " \'s", stringa)
+    stringa = re.sub(r"\'ve", " \'ve", stringa)
+    stringa = re.sub(r"n\'t", " n\'t", stringa)
+    stringa = re.sub(r"\'re", " \'re", stringa)
+    stringa = re.sub(r"\'d", " \'d", stringa)
+    stringa = re.sub(r"\'ll", " \'ll", stringa)
+    stringa = re.sub(r",", "", stringa)
+    stringa = re.sub(r"!", "", stringa)
+    stringa = re.sub(r"\(", "", stringa)
+    stringa = re.sub(r"\)", "", stringa)
+    stringa = re.sub(r"\?", "", stringa)
+    stringa = re.sub(r"\s{2,}", " ", stringa)
+    return stringa.strip().lower()
+
+#
+def filtro_stringa(stringa):
+    nltk.download('punkt')
+    if "ANSA" in stringa :
+        stringa = stringa[stringa.index('-') + 1:]
+        stringa = stringa[stringa.index('-') + 1:]
+
+    stoplist = get_stop_words('italian')
+    filtered_corpus = [word for word in word_tokenize(unicode(clean_str(stringa), "utf-8").lower()) if
+                        word not in stoplist and word not in string.punctuation]
+    stemmed_corpus = [SnowballStemmer('italian').stem(word) for word in filtered_corpus]
+
+    return stemmed_corpus
 
 def load_input(training_path, test_path) :
     xy_train = []
@@ -61,3 +80,6 @@ def load_input(training_path, test_path) :
         x_test.append(words)
 
     return (np.array(x_train), np.array(y_train)), (np.array(x_test), np.array(y_test)), vocab_train
+
+
+#print(load_input("/home/nicholas/Documenti/Keras-NN/ansa"))
