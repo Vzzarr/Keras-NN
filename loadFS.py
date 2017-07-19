@@ -1,5 +1,6 @@
 from gensim.corpora import Dictionary
 from os import listdir
+import os.path
 import re
 import numpy as np
 from stop_words import get_stop_words
@@ -39,7 +40,7 @@ def filtro_stringa(stringa):
 
     return stemmed_corpus
 
-def load_input(training_path, test_path) :
+def load_inputTrainingTest(training_path, test_path) :
     xy_train = []
     xy_test = []
 
@@ -82,4 +83,49 @@ def load_input(training_path, test_path) :
     return (np.array(x_train), np.array(y_train)), (np.array(x_test), np.array(y_test)), vocab_train
 
 
-#print(load_input("/home/nicholas/Documenti/Keras-NN/ansa"))
+
+def load_input(dataset_path):
+    #training_path, test_path
+    xy_train = []
+    xy_test = []
+
+    (x_train, y_train), (x_test, y_test) = ([], []), ([], [])
+
+    for tag in filter(lambda x: x[0] != '.', listdir(dataset_path)):
+        path = dataset_path + "/" + tag
+        num_files = len([f for f in os.listdir(path)
+                         if os.path.isfile(os.path.join(path, f))])
+        k = 0
+        for file in filter(lambda x: x[0] != '.', listdir(path)):
+            k += 1
+            f = open(path + "/" + file, "r")
+            if k < num_files * 0.8 :
+                xy_train.append(np.array((clean_str(f.read()) + " " + tag).split()))  # last element of collection is the tag
+            else :
+                xy_test.append(np.array((clean_str(f.read()) + " " + tag).split()))  # last element of collection is the tag
+
+    vocab_train = Dictionary(xy_train)
+    vocab_test = Dictionary(xy_test)
+    vocab_train.merge_with(vocab_test)
+
+    for xy in xy_train:
+        y = xy[-1]
+        y_train.append(vocab_train.token2id[y])
+        x = np.delete(xy, -1)
+        words = []
+        for word in x:
+            words.append(vocab_train.token2id[word])
+        x_train.append(words)
+
+    for xy in xy_test:
+        y = xy[-1]
+        y_test.append(vocab_train.token2id[y])
+        x = np.delete(xy, -1)
+        words = []
+        for word in x:
+            words.append(vocab_train.token2id[word])
+        x_test.append(words)
+
+    return (np.array(x_train), np.array(y_train)), (np.array(x_test), np.array(y_test)), vocab_train
+
+        #print(load_input("/home/nicholas/Documenti/Keras-NN/ansa"))

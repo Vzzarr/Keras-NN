@@ -11,14 +11,13 @@ from keras.models import load_model
 from os import listdir
 from keras.utils import plot_model
 
-localNNname = 'nn_amr.h5'
+localNNname = 'nn.h5'
 
 print('Loading data...')
-(x_train, y_train), (x_test, y_test), dictionary = \
-    load_input("/home/nicholas/Documenti/Keras-NN/mario/training", "/home/nicholas/Documenti/Keras-NN/mario/test")
+(x_train, y_train), (x_test, y_test), dictionary = load_input("/home/nicholas/Documenti/Keras-NN/mario_tt")
 
 max_words = 10000
-batch_size = 100
+batch_size = 256
 epochs = 50
 
 tokenizer = Tokenizer(num_words=max_words)
@@ -51,7 +50,7 @@ else :
 
     print('Building model...')
     model = Sequential()
-    model.add(Dense(512, input_shape=(max_words,)))
+    model.add(Dense(830, input_shape=(max_words,)))
     model.add(Activation('relu'))
     model.add(Dropout(0.5))
     model.add(Dense(num_classes))
