@@ -1,0 +1,35 @@
+
+NEW YORK - Le prossime foto delle vacanze potranno diventare opere d'arte e chissà, magari un giorno si venderanno all'asta. Un team internazionale di ricerca guidato dalla Cornell University e dal colosso della grafica digitale Adobe ha presentato in questi giorni un prototipo di intelligenza artificiale che può modificare le immagini digitali ispirandosi alla mano di Frida Kahlo o alla genialità di Leonardo. È il primo algoritmo di style transfer che riproduce, su una controparte informatica, i circuiti del cervello responsabili della visione e dell'imitazione. "Craccare la creatività umana non penso sia possibile, più facile fare delle belle copie", spiega a Repubblica Kavita Bala, pluripremiata docente di Computer Science all'università di Cornell e coordinatrice della ricerca.
+Il software intelligente che disegna come Frida Khalo
+Nei quadri di un artista ci possono essere ricorrenze di proporzioni, linee, forme degli occhi, colori, pennellate che posso essere considerate, almeno a livello statistico, il suo marchio di fabbrica. Grazie a questi calcoli il prototipo di software può riconoscere il pennello del maestro, replicarlo e usare il suo stile per ritoccare una nuova immagine. 
+
+"Non siamo più così sicuri come una volta che i sistemi di intelligenza artificiale possano dipingere dei capolavori in forma autonoma", prosegue la scienziata americana. "Ma nei prossimi anni questi programmi avranno acquisito un livello di competenze tali da copiare opere d'arte con uno stile così raffinato che anche un occhio esperto difficilmente potrà distinguerlo da un'opera originale. L'importante è non farlo in modo fraudolento".
+ 
+
+
+
+
+
+ 
+	         
+
+
+
+
+ Copiare è un po' imparare e il software messo a punto da Cornell in collaborazione con Adobe è un esempio innovativo di machine learning, una nuova generazione di software che simula i processi di apprendimento del nostro cervello. "Inseriamo nel database del software diverse migliaia di immagini che il programma analizza calcolando misure, colori e molto altro. - aggiunge Kavita Bala - Quando il sistema ha acquisito un numero sufficiente di esempi è in grado di catturare le caratteristiche comuni di tutte quelle immagini, quella che definiamo l'impronta visiva".
+
+Il trucco che consente al programma di accumulare e capitalizzare tutta questa conoscenza sullo stile di un artista si chiama deep Learning, una tecnica di intelligenza artificiale esplosa negli ultimi cinque anni che simula le capacità del cervello di imparare dall'esperienza visiva. "Ma è solo un'approsimazione di quello che accade a livello biologico", precisa la docente di Cornell.
+
+Il sistema progettato da Cornell con Adobe si rivolge, in questa prima fase, alle fotografie. "Esistono già in commercio filtri per trasformare le immagini secondo lo stile di un particolare dipinto o di un disegno a mano libera, ma non sono particolarmente realistici", precisa la scienziata di Cornell. "Il software che abbiamo progettato, al contrario, prova a imporre uno stile particolare alle fotografie senza comprometterne il livello di realtà". La foto, in altre parole, rimane sempre riconoscibile anche una volta "filtrata".
+ 
+Questo tipo di tecnologia è di grande interesse, oltre che per le grandi compagnie informatiche, anche per gli artisti stessi. Gene Kogan, per esempio, un matematico, programmatore e artista americano, ha sperimentato un sistema di style transfer progettato dall'università di Tübingen in Germania che copia e applica lo stile di grande artisti come Klimt, Frida Kahlo, Sol Lewitt su fermo-immagini di cartoni animati e fotografie.
+
+Altre software interessanti sono il DeepDream e il DeepStyle di Google, una serie di filtri fotografici, basati sull'intelligenza artificiale, che ritoccano le immagini con lo stile di grandi artisti o generando atmosfere oniriche. Esiste anche una sorta di Instagram dedicato a questo tipo di foto, talvolta un po' forti, che si chiama Dreamscope: offre 19 filtri basati sul software di Google. Le premesse per questo nuovo genere di opere sono comunque promettenti: a un'asta di beneficienza a San Francisco in California il gigante del web ha venduto le prime 29 fotografie elaborate con DeepStyle secondo la Notte stellata di Van Gogh.
+ 
+Per sviluppare questo tipo di software gli informatici di Cornell hanno fondato la GrockStyle, una società che quest'anno è stata inserita nella AI 100, la prestigiosa classifica delle cento aziende più innovative nel settore dell'intelligenza artificiale selezionate da CB Insights, una delle più importanti piattaforme mondiali per analisi del mercato tecnologico e dei venture capital.
+
+
+
+
+
+
